@@ -1,0 +1,16 @@
+worker-web:
+  image: worker-web
+  env_file: .env.docker
+  command: bundle exec thin -R sidekiq.ru start -p 9292
+  volumes:
+    - .:/app
+  ports:
+    - "9292:9292"
+  links:
+    - redis
+
+redis:
+  image: redis:latest
+  env_file: .env.docker
+  ports:
+    - "6379"
