@@ -25,7 +25,7 @@ $ foreman start
 Or without:
 
 ```bash
-$ bundle exec thin -R sidekiq.ru start -p 9292
+$ bundle exec dotenv -f .env.local thin -R sidekiq.ru start -p 9292
 
 # In another terminal
 $ redis-server
