@@ -2,8 +2,7 @@ FROM ruby:2.2.3
 MAINTAINER philippe.dionne@can-explore.com
 
 # Run updates
-# RUN apt-get update -qq && apt-get install -y \
-#   build-essential
+RUN apt-get update -qq
 
 # Clean apt
 RUN apt-get clean
