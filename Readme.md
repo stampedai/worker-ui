@@ -48,6 +48,13 @@ Launch all services and hit [docker:9292/sidekiq](http://docker:9292/sidekiq):
 $ docker-compose up
 ```
 
+# Based on
+
+- [Sidekiq statistic](https://github.com/davydovanton/sidekiq-statistic)
+- [Sidekiq status](https://github.com/utgarda/sidekiq-status)
+- [Sidetiq](https://github.com/tobiassvn/sidetiq)
+
+
 # License
 
 Worker-web is released under the [MIT License](http://opensource.org/licenses/MIT).
