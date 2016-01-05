@@ -48,6 +48,8 @@ GEM
       connection_pool (~> 2.2, >= 2.2.0)
       json (~> 1.0)
       redis (~> 3.2, >= 3.2.1)
+    sidekiq-statistic (1.2.0)
+      sidekiq (>= 3.3.4, < 5)
     sidekiq-status (0.5.4)
       sidekiq (>= 2.7)
     sinatra (1.4.6)
@@ -71,10 +73,11 @@ DEPENDENCIES
   foreman
   redis-namespace
   sidekiq
+  sidekiq-statistic
   sidekiq-status
   sidetiq!
   sinatra
   thin
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

@@ -1,6 +1,7 @@
 require 'sidekiq'
 require 'sidekiq/web'
 require 'sidekiq-status/web'
+require 'sidekiq-statistic'
 require 'sidetiq/web'
 
 Sidekiq.configure_client do |config|
