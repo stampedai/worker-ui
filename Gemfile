@@ -4,7 +4,7 @@ gem 'thin'
 
 gem 'redis-namespace'
 gem 'sidekiq', '~> 4.1'
-gem 'sidekiq-status'
+gem 'sidekiq-status', '~> 0.6'
 gem 'sinatra', require: false
 
 group :development, :test do
