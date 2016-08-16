@@ -1,4 +1,5 @@
 require 'sidekiq'
+require 'sidekiq-status'
 require 'sidekiq/web'
 require 'sidekiq-status/web'
 
