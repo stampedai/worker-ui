@@ -5,7 +5,7 @@ require 'sidekiq-status/web'
 Sidekiq.configure_client do |config|
   config.redis = {
     size: 1,
-    namespace: 'sidekiq',
+    namespace: "dialog_#{ENV.fetch('RAILS_ENV')}",
     url: ENV.fetch('REDIS_URL') { 'redis://localhost:6379' }
   }
 end
