@@ -12,7 +12,7 @@ end
 
 map '/sidekiq' do
   use Rack::Auth::Basic, "Protected Area" do |username, password|
-    username == ENV.fetch('SIDEKIQ_USERNAME') && password == ENV.fetch('SIDEKIQ_PASSWORD')
+    username == ENV.fetch('WORKER_USERNAME') && password == ENV.fetch('WORKER_PASSWORD')
   end
 
   run Sidekiq::Web
