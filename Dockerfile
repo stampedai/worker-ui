@@ -2,7 +2,8 @@ FROM ruby:2.3.1-slim
 MAINTAINER p@dialoganalytics.com
 
 # Run updates
-RUN apt-get update -qq
+RUN apt-get update -qq && apt-get install -y \
+  build-essential
 
 # Clean apt
 RUN apt-get clean
