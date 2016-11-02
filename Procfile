@@ -1,2 +1,1 @@
-web: bundle exec dotenv -f .env.local thin -R sidekiq.ru start -p 9292
-redis: redis-server
+web: bundle exec dotenv -f .env.local thin -R sidekiq.ru -a localhost -p 9292 --trace start

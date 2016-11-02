@@ -1,3 +1,5 @@
+require 'active_support/logger'
+
 require 'sidekiq'
 require 'sidekiq-status'
 require 'sidekiq/web'
@@ -18,3 +20,7 @@ map '/sidekiq' do
 
   run Sidekiq::Web
 end
+
+# Log both to STDOUT (by default) and to "log/thin.log"
+file_logger = Logger.new("log/thin.log")
+Thin::Logging.logger.extend(::ActiveSupport::Logger.broadcast(file_logger))
