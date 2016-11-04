@@ -1,13 +1,12 @@
 FROM ruby:2.3.1-slim
 MAINTAINER p@dialoganalytics.com
 
-# Run updates
-RUN apt-get update -qq && apt-get install -y \
-  build-essential
-
-# Clean apt
-RUN apt-get clean
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# Run updates, install basics and cleanup
+# - build-essential: Compile specific gems
+RUN apt-get update -qq && apt-get install -y --no-install-recommends \
+  build-essential \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Set up app directory
 RUN mkdir -p /app
