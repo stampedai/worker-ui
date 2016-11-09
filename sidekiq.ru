@@ -15,7 +15,11 @@ end
 
 map '/sidekiq' do
   use Rack::Auth::Basic, "Protected Area" do |username, password|
-    username == ENV.fetch('WORKER_USERNAME') && password == ENV.fetch('WORKER_PASSWORD')
+    # Protect against timing attacks: (https://codahale.com/a-lesson-in-timing-attacks/)
+    # - Use & (do not use &&) so that it doesn't short circuit.
+    # - Use digests to stop length information leaking
+    Rack::Utils.secure_compare(::Digest::SHA256.hexdigest(username), ::Digest::SHA256.hexdigest(ENV.fetch('WORKER_USERNAME'))) &
+      Rack::Utils.secure_compare(::Digest::SHA256.hexdigest(password), ::Digest::SHA256.hexdigest(ENV.fetch('WORKER_PASSWORD')))
   end
 
   run Sidekiq::Web
