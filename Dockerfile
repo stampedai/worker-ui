@@ -4,7 +4,7 @@ MAINTAINER p@dialoganalytics.com
 # Run updates, install basics and cleanup
 # - build-essential: Compile specific gems
 RUN apt-get update -qq && apt-get install -y --no-install-recommends \
-  build-essential \
+  build-essential && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
