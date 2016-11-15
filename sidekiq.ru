@@ -5,11 +5,26 @@ require 'sidekiq-status'
 require 'sidekiq/web'
 require 'sidekiq-status/web'
 
+# Use separate databases per environment and application
+REDISDB = {
+  app: {
+    development: 1,
+    test: 2,
+    production: 3
+  },
+  sidekiq: {
+    development: 4,
+    test: 5,
+    production: 6
+  }
+}.with_indifferent_access.freeze
+
+redis_url = URI.join(ENV.fetch('REDIS_URL') { 'redis://localhost:6379' }, REDISDB.dig(:sidekiq, Rails.env).to_s).to_s
+
 Sidekiq.configure_client do |config|
   config.redis = {
     size: 1,
-    namespace: "dialog_#{ENV.fetch('RAILS_ENV')}",
-    url: ENV.fetch('REDIS_URL') { 'redis://localhost:6379' }
+    url: redis_url
   }
 end
 
