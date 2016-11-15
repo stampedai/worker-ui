@@ -20,7 +20,7 @@ REDISDB = {
   }
 }.with_indifferent_access.freeze
 
-redis_url = URI.join(ENV.fetch('REDIS_URL') { 'redis://localhost:6379' }, REDISDB.dig(:sidekiq, Rails.env).to_s).to_s
+redis_url = URI.join(ENV.fetch('REDIS_URL') { 'redis://localhost:6379' }, REDISDB.dig(:sidekiq, ENV.fetch('RAILS_ENV')).to_s).to_s
 
 Sidekiq.configure_client do |config|
   config.redis = {
