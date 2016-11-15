@@ -1,4 +1,5 @@
 require 'active_support/logger'
+require 'active_support/core_ext/hash'
 
 require 'sidekiq'
 require 'sidekiq-status'
