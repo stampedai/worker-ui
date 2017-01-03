@@ -1,4 +1,4 @@
-FROM ruby:2.3.1-slim
+FROM ruby:2.4.0-slim
 MAINTAINER p@dialoganalytics.com
 
 # Run updates, install basics and cleanup
