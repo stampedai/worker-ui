@@ -47,7 +47,3 @@ Launch all services and hit [docker:9292/sidekiq](http://docker:9292/sidekiq):
 ```bash
 $ docker-compose up
 ```
-
-# Based on
-
-- [Sidekiq status](https://github.com/utgarda/sidekiq-status)
