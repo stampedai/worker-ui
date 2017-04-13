@@ -1,5 +1,5 @@
-worker-web:
-  image: worker-web
+worker-ui:
+  image: worker-ui
   env_file: .env.docker
   command: bundle exec thin -R sidekiq.ru start -p 9292
   volumes:

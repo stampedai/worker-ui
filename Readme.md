@@ -39,7 +39,7 @@ Hit the UI on [localhost:9292/sidekiq/](http://localhost:9292/sidekiq)
 Build the app image:
 
 ```bash
-$ docker build -t worker-web .
+$ docker build -t worker-ui .
 ```
 
 Launch all services and hit [docker:9292/sidekiq](http://docker:9292/sidekiq):
