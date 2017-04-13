@@ -1,6 +1,6 @@
 # Sidekiq Worker UI
 
-UI for background workers. Currently for [Sidekiq](http://sidekiq.org/) only.
+UI for [Sidekiq](http://sidekiq.org/) background workers.
 
 ## Getting started
 
