@@ -1,4 +1,4 @@
-# Dialog Worker UI
+# Sidekiq Worker UI
 
 UI for background workers. Currently for [Sidekiq](http://sidekiq.org/) only.
 
