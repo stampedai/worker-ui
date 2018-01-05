@@ -10,11 +10,11 @@ GEM
     rack-protection (2.0.0)
       rack
     redis (3.3.5)
-    sidekiq (4.2.5)
+    sidekiq (5.0.0)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
-      redis (~> 3.2, >= 3.2.1)
+      redis (~> 3.3, >= 3.3.3)
     thin (1.7.2)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
@@ -25,7 +25,7 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv
-  sidekiq (= 4.2.5)
+  sidekiq (= 5.0)
   thin (~> 1.7)
 
 RUBY VERSION
