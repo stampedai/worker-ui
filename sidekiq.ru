@@ -13,8 +13,8 @@ map '/sidekiq' do
     # Protect against timing attacks: (https://codahale.com/a-lesson-in-timing-attacks/)
     # - Use & (do not use &&) so that it doesn't short circuit.
     # - Use digests to stop length information leaking
-    Rack::Utils.secure_compare(::Digest::SHA256.hexdigest(username), ::Digest::SHA256.hexdigest(ENV.fetch('WORKER_USERNAME'))) &
-      Rack::Utils.secure_compare(::Digest::SHA256.hexdigest(password), ::Digest::SHA256.hexdigest(ENV.fetch('WORKER_PASSWORD')))
+    Rack::Utils.secure_compare(::Digest::SHA256.hexdigest(username), ::Digest::SHA256.hexdigest(ENV.fetch('SIDEKIQ_USERNAME'))) &
+      Rack::Utils.secure_compare(::Digest::SHA256.hexdigest(password), ::Digest::SHA256.hexdigest(ENV.fetch('SIDEKIQ_PASSWORD')))
   end
 
   run Sidekiq::Web
