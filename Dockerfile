@@ -1,4 +1,4 @@
-FROM ruby:2.4.0-slim
+FROM ruby:2.4.2-slim
 MAINTAINER dionne.phil@gmail.com
 
 # Run updates, install basics and cleanup
