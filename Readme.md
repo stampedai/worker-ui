@@ -47,3 +47,7 @@ Launch all services and hit [docker:9292/sidekiq](http://docker:9292/sidekiq):
 ```bash
 $ docker-compose up
 ```
+
+# License
+
+Worker-UI is released under the [MIT License](http://opensource.org/licenses/MIT).
