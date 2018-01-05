@@ -1,5 +1,5 @@
 FROM ruby:2.4.0-slim
-MAINTAINER p@dialoganalytics.com
+MAINTAINER dionne.phil@gmail.com
 
 # Run updates, install basics and cleanup
 # - build-essential: Compile specific gems
