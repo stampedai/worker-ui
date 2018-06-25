@@ -1,3 +1,4 @@
+require 'active_support/security_utils'
 require 'sidekiq'
 require 'sidekiq/web'
 
