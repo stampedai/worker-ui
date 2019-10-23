@@ -1,6 +1,7 @@
 require 'active_support/security_utils'
 require 'sidekiq'
 require 'sidekiq/web'
+require 'sidekiq/cron/web'
 
 Sidekiq.configure_client do |config|
   config.redis = {
