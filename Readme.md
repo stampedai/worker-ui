@@ -10,6 +10,12 @@ Install gems:
 $ bundle install
 ```
 
+With Sidekiq Pro:
+
+```bash
+$ SIDEKIQ_PRO_KEY=... bundle install
+```
+
 Copy default environment variables and configure in [.env.local](.env.local):
 
 ```bash
@@ -30,6 +36,7 @@ Hit the UI on [localhost:3000](http://localhost:3000)
 |:------------------|:----------------------------------------------------------------|:---------|:-----------------------|
 | `PORT`            | Port on which Puma will run                                     | false    | 3000                   |
 | `APP_ENV`         | Application environment (`production`, `development` or `test`) | false    | production             |
+| `SIDEKIQ_PRO_KEY` | Sidekiq Pro credentials                                         | false    |                        |
 | `REDIS_URL`       | Redis URL                                                       | true     | redis://localhost:6379 |
 
 ## Docker
@@ -40,8 +47,10 @@ Build the app image:
 $ docker build -t worker-ui .
 ```
 
+With Sidekiq Pro:
 
 ```bash
+$ docker build --build-arg SIDEKIQ_PRO_KEY=fbfd958a:2633dc73 -t worker-ui-pro .
 ```
 
 # License

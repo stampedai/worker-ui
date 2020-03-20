@@ -4,9 +4,11 @@ MAINTAINER dionne.phil@gmail.com
 # Defaults
 ARG APP_ENV
 ARG PORT
+ARG SIDEKIQ_PRO_KEY
 
 ENV APP_ENV ${APP_ENV}
 ENV PORT ${PORT}
+ENV SIDEKIQ_PRO_KEY ${SIDEKIQ_PRO_KEY}
 
 # Run updates, install basics and cleanup
 # - build-essential: Compile specific gems
@@ -21,6 +23,8 @@ WORKDIR /app
 
 # Install gems, use cache if possible
 COPY Gemfile ./
+
+RUN if [ -n "$SIDEKIQ_PRO_KEY" ]; then bundle config --global gems.contribsys.com $SIDEKIQ_PRO_KEY; fi
 
 RUN bundle config --global without development test
 RUN bundle config --global clean true

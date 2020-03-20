@@ -1,7 +1,14 @@
 require 'digest'
 require 'active_support/security_utils'
-require 'sidekiq'
-require 'sidekiq/web'
+
+if ENV["SIDEKIQ_PRO_KEY"] && ENV["SIDEKIQ_PRO_KEY"] != ""
+  require 'sidekiq-pro'
+  require 'sidekiq/pro/web'
+else
+  require 'sidekiq'
+  require 'sidekiq/web'
+end
+
 require 'sidekiq/cron/web'
 
 # @see https://github.com/mperham/sidekiq/wiki/Monitoring
