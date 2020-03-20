@@ -20,3 +20,5 @@
 dump.rdb
 
 .env.local
+
+Gemfile.lock

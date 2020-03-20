@@ -1,6 +1,6 @@
-# Worker-UI
+# Worker UI
 
-UI for background workers. Currently for [Sidekiq](http://sidekiq.org/) only.
+UI for [Sidekiq](http://sidekiq.org/) background workers.
 
 ## Getting started
 
@@ -16,23 +16,21 @@ Copy default environment variables and configure in [.env.local](.env.local):
 $ cp .env.default .env.local && $EDITOR .env.local
 ```
 
-Start with foreman:
+Start with overmind:
 
 ```bash
-$ foreman start
+$ dotenv -f .env.local overmind start
 ```
 
-Or without:
+Hit the UI on [localhost:3000](http://localhost:3000)
 
-```bash
-$ bundle exec dotenv -f .env.local thin -R sidekiq.ru start -p 9292
+## Configuration
 
-# In another terminal
-$ redis-server
-```
-
-Hit the UI on [localhost:9292/sidekiq/](http://localhost:9292/sidekiq)
-
+| Name              | Description                                                     | Required | Default                |
+|:------------------|:----------------------------------------------------------------|:---------|:-----------------------|
+| `PORT`            | Port on which Puma will run                                     | false    | 3000                   |
+| `APP_ENV`         | Application environment (`production`, `development` or `test`) | false    | production             |
+| `REDIS_URL`       | Redis URL                                                       | true     | redis://localhost:6379 |
 
 ## Docker
 
@@ -42,10 +40,8 @@ Build the app image:
 $ docker build -t worker-ui .
 ```
 
-Launch all services and hit [docker:9292/sidekiq](http://docker:9292/sidekiq):
 
 ```bash
-$ docker-compose up
 ```
 
 # License

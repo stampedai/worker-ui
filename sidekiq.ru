@@ -1,8 +1,10 @@
+require 'digest'
 require 'active_support/security_utils'
 require 'sidekiq'
 require 'sidekiq/web'
 require 'sidekiq/cron/web'
 
+# @see https://github.com/mperham/sidekiq/wiki/Monitoring
 Sidekiq.configure_client do |config|
   config.redis = {
     size: 1,
@@ -10,7 +12,7 @@ Sidekiq.configure_client do |config|
   }
 end
 
-map '/sidekiq' do
+map '/' do
   use Rack::Auth::Basic, "Protected Area" do |username, password|
     # Protect against timing attacks:
     # - See https://codahale.com/a-lesson-in-timing-attacks/

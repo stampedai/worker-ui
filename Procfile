@@ -1,1 +1,1 @@
-web: bundle exec thin -R sidekiq.ru -p $PORT -e $RACK_ENV start
+web: bundle exec thin -R sidekiq.ru -p 3000 -e production start
