@@ -4,6 +4,11 @@ UI for [Sidekiq](http://sidekiq.org/) background workers.
 
 ## Getting started
 
+Install ruby 2.6.5 (required for the worker-ui to run properly)
+```bash
+$ asdf install ruby 2.6.5
+```
+
 Install gems:
 
 ```bash
@@ -29,6 +34,11 @@ $ dotenv -f .env.local overmind start
 ```
 
 Hit the UI on [localhost:3000](http://localhost:3000)
+
+If you get a `No preset version installed for command dotenv` error when trying to start the workey-ui, even with the correct ruby version install, you might be missing rails:
+```bash
+$ gem install rails
+```
 
 ## Configuration
 
